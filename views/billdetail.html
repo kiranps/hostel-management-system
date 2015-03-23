@@ -1,0 +1,127 @@
+<section class="content-header">
+  <button class="btn btn-default btn-sm pull-right">delete bill</button>
+  <h1>
+    Bill Detail
+    <small>details of bill</small>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li ng-class="{true:'active', false:''}[ 0 == tab ]"><a data-toggle="tab" ng-click="tab = 0">General</a></li>
+          <li ng-class="{true:'active', false:''}[ 1 == tab ]"><a data-toggle="tab" ng-click="tab = 1">MH A</a></li>
+          <li ng-class="{true:'active', false:''}[ 2 == tab ]"><a data-toggle="tab" ng-click="tab = 2">MH B</a></li>
+          <li ng-class="{true:'active', false:''}[ 3 == tab ]"><a data-toggle="tab" ng-click="tab = 3">LH A</a></li>
+          <li ng-class="{true:'active', false:''}[ 4 == tab ]"><a data-toggle="tab" ng-click="tab = 4">LH B</a></li>
+          <li class="pull-right" style="padding:4px;">
+            <button class="btn btn-default btn-sm" ng-show="btn === 1" ng-click="btn = 0">edit</button>
+            <button class="btn btn-default btn-sm" ng-show="btn === 0" ng-click="btn = 1">save</button>
+          </li>
+        </ul>
+        <div class="tab-content" ng-init="tab = 0;btn = 1">
+
+          <div ng-class="{true:'tab-pane active', false:'tab-pane'}[ 0 == tab ]">
+            <div class="box box-solid">
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>Rent</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">200</span>
+                        <input ng-show="btn === 0" type="text" class="form-control input-sm" value="200">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div ng-class="{true:'tab-pane active', false:'tab-pane'}[ $index+1 == tab ]" ng-repeat="hostel in hostels">
+            <div class="box box-solid">
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>group</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">{{ hostel.group }}</span>
+                        <select ng-show="btn === 0" class="form-control" value="{{ hostel.group }}">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Mess Rate / Head</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">{{ hostel.mess }}</span>
+                        <input ng-show="btn === 0" type="text" class="form-control input-sm" value="{{ hostel.mess }}">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Misc</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">{{ hostel.misc }}</span>
+                        <input ng-show="btn === 0" type="text" class="form-control input-sm" value="{{ hostel.misc }}">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Water</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">{{ hostel.water }}</span>
+                        <input ng-show="btn === 0" type="text" class="form-control input-sm" value="{{ hostel.water }}">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Electricity</td>
+                      <td style="width:50%;">
+                        <span ng-show="btn === 1">{{ hostel.electricity }}</span>
+                        <input ng-show="btn === 0" type="text" class="form-control input-sm" value="{{ hostel.electricity }}">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <br>
+                <br>
+
+                <div class="box box-solid">
+                  <div class="box-header">
+                    <h3 class="box-title">Attendance</h3>
+                  </div><!-- /.box-header -->
+                  <div class="box-body">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <th style="width: 10px">#</th>
+                          <th>Name</th>
+                          <th>Register no</th>
+                          <th style="width: 50px;">Attendance</th>
+                        </tr>
+                        <tr ng-repeat="student in students|filter:{mess: tab}">
+                          <td>{{ $index+1 }}</td>
+                          <td>{{ student.name }}</td>
+                          <td>{{ student.regno }}</td>
+                          <td>
+                            <span ng-show="btn === 1">{{ student.attendance }}</span>
+                            <input ng-show="btn === 0" type="text" class="form-control input-sm" value="{{ student.attendance }}">
+                          </td>
+                        </tr>
+                    </tbody></table>
+                  </div>
+                </div>
+
+              </div><!-- /.box-body -->
+            </div>
+          </div><!-- /.tab-pane -->
+
+        </div><!-- /.tab-content -->
+      </div>
+    </div>
+  </div>
+</section>

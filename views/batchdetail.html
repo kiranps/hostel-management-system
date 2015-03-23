@@ -1,0 +1,37 @@
+<section class="content-header">
+  <h1>
+    {{ batch.course }}-{{ batch.year }} 
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <div class="pull-right" style="padding:10px">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-confirm">delete batch</button>
+            <modal modal-body="Are you sure you want to delete" on-clic="clickOk()"></modal>
+            <!--<modal modal-body="Are you sure you want to delete" toggle-button="delete batch"></modal>-->
+            <!--<button class="btn btn-danger" ng-click="removeBatch()">delete batch</button>-->
+            <button class="btn btn-success" ng-click="go('/addstudent')">add student</button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <tbody><tr>
+                <th>Name</th>
+                <th>Register no</th>
+                <th>Room</th>
+              </tr>
+              <tr ng-repeat="student in students" ng-click="go('studentdetail/{{ student._id }}')">
+                <td>{{ student.name }}</td>
+                <td>{{ student.regno }}</td>
+                <td>{{ student.room }}</td>
+              </tr>
+          </tbody></table>
+        </div><!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+.bill > tr {
+padding:0px;
+}
+
+.row {
+    overflow: hidden;
+}
+
+
+body > .header .logo {
+    width: 181px;
+}
+
+body > .header .navbar {
+    margin-left: 0px;
+}
+
+.skin-blue .logo  {
+	background-color: #3C8DBC;
+}

@@ -1,0 +1,63 @@
+<section class="content-header">
+  <h1>
+    Bill Payement
+    <small>search students</small>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <div class="box-body">
+
+            <div class="form-group" style="width:30%;">
+              <label>Select Month</label>
+              <select class="form-control">
+                <option ng-repeat="month in months">{{ month }}</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Search</label>
+              <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                  <button type="submit" name="seach" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+
+            <br>
+
+            <div>
+              <label>Student list</label>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Register No</th>
+                    <th>Room</th>
+                    <th>Bill</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="student in students" ng-click="go('billfull/{{ student.regno }}')">
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.regno }}</td>
+                    <td>{{ student.room }}</td>
+                    <td>{{ student.bill }}</td>
+                    <td><span ng-class="{true:'label label-success', false:'label label-danger'}[student.status== 'paid']">{{ student.status }}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- /.content -->

@@ -1,0 +1,21 @@
+<!--modal button-->
+<!--<button type="button" class="btn btn-default" data-toggle="modal" data-target=".modal-confirm">{{ btname }}</button>-->
+<!--modal content-->
+<div id="myModal" class="modal modal-confirm" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header" align="center">
+        <h4 class="modal-title">warning</h4>
+      </div>
+      <div class="modal-body">
+        <p align="center">{{ body }}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default pull-left" data-dismiss="modal">cancel</button>
+        <!--<button class="btn btn-default" data-dismiss="modal">ok</button>-->
+        <button class="btn btn-default" data-dismiss="modal" ng-click="onClic()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>

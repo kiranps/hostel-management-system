@@ -1,0 +1,56 @@
+<section class="content-header">
+  <h1>
+    Student Bills
+    <small>complete bill</small>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <h3 class="box-title">
+            Student Details
+          </h3>
+        </div>
+        <div class="box-body">
+          <div>
+            <strong>name</strong><br>
+            <strong>register no : </strong>{{ regno }}<br>
+            <strong>block</strong><br>
+            <strong>room</strong><br>
+            <strong>branch</strong><br>
+            <strong>course</strong><br>
+            <strong>phone no</strong>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="box box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Bills</h3>
+          <div class="box-tools">
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tbody><tr>
+                <th>Date</th>
+                <th>Mess</th>
+                <th>Bill</th>
+                <th>Status</th>
+              </tr>
+              <tr ng-repeat="bill in bills" ng-click="go('/showbill/{{ bill.id }}')">
+                <td>{{ bill.date }}</td>
+                <td>{{ bill.mess }}</td>
+                <td>{{ bill.cost }}</td>
+                <td><span ng-class="{true:'label label-success', false:'label label-danger'}[bill.status== 'paid']">{{ bill.status }}</span></td>
+              </tr>
+          </tbody></table>
+        </div><!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>

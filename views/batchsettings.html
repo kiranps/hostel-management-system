@@ -1,0 +1,45 @@
+<section class="content-header">
+  <h1>
+    batch settings
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Mark current batches</h3>
+          <div class="pull-right" style="padding:10px" ng-init="btn = 1">
+            <button class="btn btn-default btn-sm" ng-show="btn === 1" ng-click="btn = 0">edit</button>
+            <button class="btn btn-default btn-sm" ng-show="btn === 0" ng-click="btn = 1; saveChanges()">save</button>
+            <button class="btn btn-default btn-sm" ng-click="go('/addbatch')">add batch</button>
+          </div>
+        </div><!-- /.box-header -->
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>#</th>
+                <th>batch</th>
+                <th>course</th>
+                <th>current</th>
+                <th>view</th>
+              </tr>
+              <tr ng-repeat="batch in batches">
+                <td>{{ $index+1 }}</td>
+                <td>{{ batch.year }}</td>
+                <td>{{ batch.course }}</td>
+                <td>
+                  <input ng-show="btn === 0" type="checkbox" ng-model="batch.current">
+                  <input ng-show="btn === 1" type="checkbox" disabled ng-model="batch.current">
+                </td>
+                <td><button class="btn btn-default btn-sm" ng-click="go('batchdetail/{{ batch._id }}')">view</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>
